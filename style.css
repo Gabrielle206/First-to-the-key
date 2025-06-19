@@ -1,0 +1,421 @@
+/* Estilos Globais */
+body {
+    background-color: #0a0a1a; /* Fundo escuro, quase preto com tom azulado */
+    color: #00ffcc; /* Cor principal do texto - Ciano neon */
+    font-family: 'Press Start 2P', cursive; /* Fonte pixelada */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Evitar barras de rolagem desnecessárias */
+    image-rendering: pixelated; /* Garante que as imagens fiquem pixeladas */
+}
+
+#game-container {
+    width: 800px; /* Largura do container do jogo */
+    height: 600px; /* Altura do container do jogo */
+    border: 5px solid #ff00ff; /* Borda magenta neon */
+    box-shadow: 0 0 20px #ff00ff, inset 0 0 15px #00ffff; /* Sombra externa magenta e interna ciano */
+    background: url('assets/images/ui_frame.png') no-repeat center center;
+    background-size: cover; /* Ajusta a imagem de fundo */
+    position: relative;
+    overflow: hidden; /* Esconde conteúdo fora do container */
+    display: flex; /* Usa flexbox para alinhar conteúdo interno */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos das Telas */
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 10, 26, 0.9); /* Fundo semi-transparente para sobrepor o frame */
+    display: none; /* Esconde todas as telas por padrão */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.screen.active {
+    display: flex; /* Mostra a tela ativa */
+    animation: screen-fade-in 0.5s ease-in-out; /* Animação de entrada */
+}
+
+@keyframes screen-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+h1 {
+    color: #ff00ff; /* Magenta neon */
+    text-shadow: 0 0 10px #ff00ff;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
+
+h2 {
+    color: #00ffff; /* Ciano neon */
+    text-shadow: 0 0 8px #00ffff;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+p {
+    font-size: 0.9em;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-bottom: 15px;
+    color: #eee; /* Cor de texto secundária */
+}
+
+/* Tela de Regras */
+#rules-screen .rules-content {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid #00ffff;
+    padding: 20px;
+    margin-bottom: 30px;
+    max-height: 60%;
+    overflow-y: auto;
+}
+
+#rules-screen .rules-content p {
+    text-align: left;
+}
+
+/* Botões */
+button {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #00ffff; /* Ciano neon */
+    color: #0a0a1a; /* Cor do texto do botão */
+    border: 2px solid #00ffff;
+    padding: 15px 30px;
+    font-size: 1em;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px #00ffff;
+}
+
+button:hover {
+    background-color: #ff00ff; /* Magenta neon no hover */
+    color: #fff;
+    border-color: #ff00ff;
+    box-shadow: 0 0 15px #ff00ff, 0 0 5px #fff;
+    transform: scale(1.05);
+}
+
+/* Tela Principal do Jogo */
+#hud {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+}
+
+#lives-display, #keys-display {
+    display: flex;
+    align-items: center;
+}
+
+#lives-display span, #keys-display span {
+    margin-right: 10px;
+    color: #ff00ff; /* Magenta */
+}
+
+.life-coin {
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+    transition: opacity 0.5s ease-out; /* Animação suave para perda de vida */
+}
+
+#keys-display img {
+    width: 30px;
+    height: auto;
+    margin-left: 8px;
+    opacity: 0.5; /* Chaves ficam opacas até serem coletadas */
+    transition: opacity 0.5s ease-in-out; /* Transição suave para coleta */
+}
+
+#keys-display img.collected {
+    opacity: 1;
+    filter: drop-shadow(0 0 5px #ffff00); /* Brilho sutil na chave coletada */
+}
+
+#challenge-area {
+    margin-top: 80px; /* Espaço para o HUD */
+    width: 90%;
+}
+
+#challenge-question {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    height: 200px;
+    overflow-y: auto;
+}
+
+#answer-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas para respostas */
+    gap: 15px;
+    margin-top: 20px;
+}
+
+#answer-options button {
+    width: 100%;
+    padding: 12px;
+    font-size: 0.9em;
+    background-color: rgba(0, 255, 255, 0.7); /* Botões de resposta semi-transparentes */
+    box-shadow: none;
+}
+
+#answer-options button:hover {
+    background-color: #ff00ff;
+}
+
+#answer-options button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#feedback-area {
+    margin-top: 20px;
+    font-size: 1.2em;
+    min-height: 30px;
+    font-weight: bold;
+}
+
+.correct {
+    color: #00ff00; /* Verde neon para correto */
+    text-shadow: 0 0 8px #00ff00;
+    animation: feedback-pulse 0.5s ease-in-out;
+}
+
+.incorrect {
+    color: #ff0000; /* Vermelho neon para incorreto */
+    text-shadow: 0 0 8px #ff0000;
+    animation: feedback-shake 0.5s ease-in-out;
+}
+
+@keyframes feedback-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes feedback-shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Tela de Game Over */
+#game-over-screen {
+    background-color: rgba(50, 0, 0, 0.9); /* Fundo avermelhado */
+}
+#game-over-screen h1 {
+    color: #ff0000; /* Vermelho neon */
+    text-shadow: 0 0 15px #ff0000;
+    animation: gameover-flicker 1.5s linear infinite;
+}
+
+@keyframes gameover-flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* Tela de Vitória */
+#win-screen h1 {
+    color: #ffff00; /* Amarelo neon */
+    text-shadow: 0 0 15px #ffff00;
+}
+
+#final-key-image {
+    width: 150px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 15px #00ffff);
+}
+
+#timeline-container {
+    border: 2px dashed #00ffff;
+    padding: 15px;
+    margin: 20px 0;
+    width: 80%;
+    min-height: 100px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+#timeline-container p {
+    color: #fff;
+}
+
+/* Tela de Animação da Chave */
+#key-animation-screen {
+    background-color: rgba(0, 0, 0, 0.95); /* Fundo mais escuro para destaque */
+}
+
+#key-animation-screen h2 {
+     animation: text-glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes text-glow {
+    from { text-shadow: 0 0 8px #00ffff; }
+    to { text-shadow: 0 0 15px #00ffff, 0 0 5px #fff; }
+}
+
+#unlocked-key-image {
+    width: 200px; /* Tamanho maior para a chave desbloqueada */
+    margin: 30px 0;
+    animation: key-reveal 1s ease-out forwards, key-float-strong 2.5s 1s ease-in-out infinite; /* Combina animações */
+    opacity: 0; /* Começa invisível para key-reveal */
+    filter: drop-shadow(0 0 10px #fff); /* Adiciona brilho */
+}
+
+@keyframes key-reveal {
+    from {
+        transform: scale(0.5) rotate(-15deg);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes key-float-strong {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(5deg); }
+}
+
+/* Responsividade básica */
+@media (max-width: 850px) {
+    #game-container {
+        width: 95%;
+        height: auto;
+        min-height: 90vh;
+    }
+    h1 { font-size: 2em; }
+    h2 { font-size: 1.2em; }
+    p { font-size: 0.8em; }
+    button { padding: 12px 20px; font-size: 0.9em; }
+    #answer-options {
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+    }
+    #hud { font-size: 0.8em; }
+    .life-coin, #keys-display img { width: 25px; }
+    #unlocked-key-image { width: 150px; }
+}
+
+
+
+/* --- Timeline Styles (Added Step 9) --- */
+#timeline-container {
+    width: 90%;
+    max-width: 700px;
+    margin-top: 15px;
+    position: relative; /* Needed for absolute positioning of details */
+}
+
+.timeline-line {
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #00ffff, #ff00ff); /* Neon gradient */
+    border-radius: 3px;
+    position: relative;
+    margin-top: 50px; /* Space for icons above */
+}
+
+.timeline-event {
+    position: absolute;
+    bottom: -20px; /* Position icon below the line */
+    transform: translateX(-50%); /* Center the icon */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timeline-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #0a0a1a;
+    border: 3px solid #00ffff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8em;
+    color: #00ffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 2;
+    box-shadow: 0 0 10px #00ffff;
+}
+
+.timeline-icon:hover {
+    border-color: #ff00ff;
+    color: #ff00ff;
+    box-shadow: 0 0 15px #ff00ff;
+    transform: scale(1.1);
+}
+
+.timeline-details {
+    position: absolute;
+    bottom: 55px; /* Position details above the icon */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid #ff00ff;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.7em;
+    color: #eee;
+    text-align: left;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1;
+}
+
+.timeline-details.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.timeline-details strong {
+    color: #ff00ff;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.timeline-details p {
+    font-size: 0.9em;
+    line-height: 1.4;
+    margin-bottom: 0;
+    color: #ccc;
+}
+
+/* Adjust details positioning for edge cases if needed */
+.timeline-event:first-child .timeline-details {
+    left: 0;
+    transform: translateX(0);
+}
+
+.timeline-event:last-child .timeline-details {
+    left: auto;
+    right: 0;
+    transform: translateX(0);
+}
+
