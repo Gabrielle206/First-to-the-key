@@ -53,18 +53,6 @@ O jogo roda direto no navegador, sem instalação e sem servidor.
 
 <br/>
 
-## ✦ Estrutura do projeto
-
-First-to-the-key/
-├── assets/
-│ ├── audio/ # trilha sonora
-│ └── images/ # imagens e elementos visuais do jogo
-├── js/
-│ └── script.js # lógica do jogo
-├── index.html # página principal
-└── style.css # estilos
-
-
 <br/>
 
 ## ✦ Autoria
