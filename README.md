@@ -20,7 +20,7 @@
 
 ## ✦ Sobre o projeto
 
-O **First to the Key** é um jogo educativo criado como ferramenta de apoio ao estudo de conteúdos fundamentais da área da computação. A proposta é unir elementos de gamificação ao aprendizado, para que estudar seja mais leve e didático.
+O **First to the Key** é um jogo educativo criado como ferramenta de apoio ao estudo de conteúdos fundamentais da área da computação inspirado no filme Player Number 1. A proposta é unir elementos de gamificação ao aprendizado, para que estudar seja mais leve e didático.
 
 O projeto foi desenvolvido na disciplina de **Introdução à Ciência da Computação**, no primeiro semestre do curso de Ciência da Computação da **UNIVASF**, **com o auxílio de ferramentas de IA** durante o desenvolvimento.
 
