@@ -11,7 +11,7 @@
 <br/>
 
 <a href="https://gabrielle206.github.io/First-to-the-key/">
-  <img src="[https://img.shields.io/badge/▶%20JOGAR%20ONLINE-0D1117?style=for-the-badge&labelColor=2563EB](https://gabrielle206.github.io/First-to-the-key/" alt="Jogar online" />
+  <img src="https://img.shields.io/badge/%E2%96%B6%20JOGAR%20ONLINE-0D1117?style=for-the-badge&labelColor=2563EB" alt="Jogar online" />
 </a>
 
 </div>
