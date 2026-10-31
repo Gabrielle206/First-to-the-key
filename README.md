@@ -54,3 +54,30 @@ O jogo roda direto no navegador, sem instalação e sem servidor.
 <br/>
 
 ## ✦ Estrutura do projeto
+
+First-to-the-key/
+├── assets/
+│ ├── audio/ # trilha sonora
+│ └── images/ # imagens e elementos visuais do jogo
+├── js/
+│ └── script.js # lógica do jogo
+├── index.html # página principal
+└── style.css # estilos
+
+
+<br/>
+
+## ✦ Autoria
+
+Desenvolvido por **Gabrielle Rocha** e colegas, estudantes de Ciência da Computação na UNIVASF.
+
+<div align="center">
+
+<a href="https://www.linkedin.com/in/gabrielle-rocha-44615538b">
+  <img src="https://img.shields.io/badge/LinkedIn-2563EB?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+</a>
+<a href="https://github.com/Gabrielle206">
+  <img src="https://img.shields.io/badge/GitHub-Gabrielle206-0D1117?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+</a>
+
+</div>
