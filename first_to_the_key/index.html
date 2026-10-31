@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First to the Key</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <audio id="background-music" loop>
+        <source src="assets/audio/soundtrack.mp3" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+
+    <div id="game-container">
+        <!-- Tela de Regras (Inicial) -->
+        <div id="rules-screen" class="screen active">
+            <h1>FIRST TO THE KEY</h1>
+            <div class="rules-content">
+                <h2>REGRAS DO JOGO</h2>
+                <p><strong>Objetivo:</strong> Coletar as 4 Chaves do Conhecimento (Bronze, Prata, Ouro e a Chave Mestra de Diamante) superando desafios.</p>
+                <p><strong>Fases:</strong> O jogo possui 4 fases. A fase 1 começa com 5 desafios e vai decrescendo o número de desafios e dificultando. Erre a última fase e perca TUDO. A fase final tem 1 desafio decisivo.</p>
+                <p><strong>Chaves:</strong> Complete uma fase para ganhar a chave correspondente. As 3 primeiras chaves abrem o portal para o desafio final.</p>
+                <p><strong>Vidas:</strong> Você começa com 4 vidas (moedas). Cada erro custa uma vida. Se perder todas, é FIM DE JOGO!</p>
+                <p><strong>Vitória:</strong> Supere o desafio final para obter a Chave Mestra de Diamante e vencer!</p>
+            </div>
+            <button id="start-button">INICIAR JOGO</button>
+        </div>
+
+        <!-- Tela Principal do Jogo -->
+        <div id="game-screen" class="screen">
+            <div id="hud">
+                <div id="lives-display">
+                    <span>VIDAS:</span>
+                    <img src="assets/images/golden_coin.png" alt="Vida" class="life-coin">
+                    <img src="assets/images/golden_coin.png" alt="Vida" class="life-coin">
+                    <img src="assets/images/golden_coin.png" alt="Vida" class="life-coin">
+                    <img src="assets/images/golden_coin.png" alt="Vida" class="life-coin">
+                </div>
+                <div id="keys-display">
+                    <span>CHAVES:</span>
+                    <!-- Ícones das chaves aparecerão aqui -->
+                </div>
+            </div>
+            <div id="challenge-area">
+                <h2 id="phase-title">FASE 1 - CHAVE DE BRONZE</h2>
+                <p id="challenge-question">Carregando desafio...</p>
+                <div id="answer-options">
+                    <!-- Opções de resposta serão inseridas aqui -->
+                </div>
+            </div>
+            <div id="feedback-area"></div>
+        </div>
+
+        <!-- Tela de Game Over -->
+        <div id="game-over-screen" class="screen">
+            <h1>GAME OVER</h1>
+            <p>Você perdeu todas as suas vidas!</p>
+            <button id="restart-button-gameover">TENTAR NOVAMENTE</button>
+        </div>
+
+        <!-- Tela de Vitória / Cena Final -->
+        <div id="win-screen" class="screen">
+            <h1>VITÓRIA!</h1>
+            <p>Você conquistou a Chave Mestra de Diamante!</p>
+            <img src="assets/images/diamond_master_key.png" alt="Chave Mestra" id="final-key-image">
+            <h2>O Nascimento da Inteligência Computacional</h2>
+            <div id="timeline-container">
+                <!-- Linha do tempo interativa será inserida aqui -->
+                <p>Em breve: Uma linha do tempo interativa desde o código binário até os sistemas complexos atuais.</p>
+            </div>
+            <button id="restart-button-win">JOGAR NOVAMENTE</button>
+        </div>
+
+         <!-- Animação da Chave -->
+        <div id="key-animation-screen" class="screen">
+            <h2 id="key-unlocked-title">CHAVE DESBLOQUEADA!</h2>
+            <img id="unlocked-key-image" src="" alt="Chave Desbloqueada">
+            <button id="next-phase-button">PRÓXIMA FASE</button>
+        </div>
+
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+
